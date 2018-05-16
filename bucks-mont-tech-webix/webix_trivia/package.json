@@ -1,16 +1,16 @@
 {
-  "name" : "com.etherient.webixTrivia",
-  "version" : "1.0.0",
-  "description" : "A trivia app for my Webix May 2018 presentation",
-  "main" : "server.js",
-  "author" : "Frank Zammetti",
-  "private" : true,
-  "license" : "MIT",
-  "dependencies" : {
-    "socket.io" : "2.0.4",
-    "lodash" : "*"
+  "name": "com.etherient.webixTrivia",
+  "version": "1.0.0",
+  "description": "A trivia app for my Webix May 2018 presentation",
+  "main": "server.js",
+  "author": "Frank Zammetti",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "2.0.4",
+    "lodash": "*"
   },
-  "scripts" : {
-    "start" : "node server.js"
+  "scripts": {
+    "start": "node server.js"
   }
 }

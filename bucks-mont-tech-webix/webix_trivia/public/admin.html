@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    	content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,user-scalable=yes">
+
+    <title>Webix Trivia ADMIN</title>
+
+  </head>
+
+  <body></body>
+
+  <link rel="stylesheet" href="webix/codebase/webix.css" type="text/css" media="screen" charset="utf-8">
+  <script src="webix/codebase/webix.js" type="text/javascript" charset="utf-8"></script>
+
+  <script src="socket.io.js" type="text/javascript" charset="utf-8"></script>
+
+  <script>
+
+    let socket = null;
+
+    webix.ready(function() {
+
+      socket = io(`${window.location.protocol}//${window.location.hostname}`);
+
+      webix.ui({ rows : [
+        { view : "form", id : "adminForm", elementsConfig : { view : "text", readonly : true },
+          elements : [
+            { label : "Asked", name : "asked" },
+            { label : "Remaining", name : "remaining" }
+          ]
+        },
+        { id : "leaderboard", height : 200, view : "list", select : false, data : [ ],
+          template : function(inPlayer) {
+            return `${inPlayer.playerName} - ${inPlayer.points} points`;
+          }
+        },
+        { height : 20 },
+        { view : "button", label : "New Game", height : 80,
+          click : function() {
+            webix.confirm("Are you sure?", function(inResult) {
+              if (inResult) {
+                socket.emit("newGame", { });
+              }
+            });
+          }
+        },
+        { height : 20 },
+        { view : "button", label : "Next Question", height : 80,
+          click : function() {
+            socket.emit("nextQuestion", { });
+          }
+        },
+        { height : 20 },
+        { view : "button", label : "End Game", height : 80,
+          click : function() {
+            webix.confirm("Are you sure?", function(inResult) {
+              if (inResult) {
+                socket.emit("endGame", { });
+              }
+            });
+          }
+        },
+        { }
+      ] });
+
+      socket.on("connected", function(inData) {
+        socket.emit("updateStats", { });
+      });
+
+      socket.on("showMessage", function(inData) {
+        webix.message({ text : inData.message, type : "error" });
+      });
+
+      socket.on("updateStats", function(inData) {
+        $$("adminForm").setValues(inData.stats);
+        $$("leaderboard").clearAll();
+        $$("leaderboard").parse(inData.leaderboard);
+      });
+
+      socket.on("endGame", function(inData) {
+        $$("leaderboard").clearAll();
+        $$("leaderboard").parse(inData.leaderboard);
+      });
+
+    });
+
+  </script>
+
+</html>

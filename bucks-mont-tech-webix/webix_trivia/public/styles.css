@@ -1,0 +1,82 @@
+/* Background color and sizing of side menu. */
+.cssSideMenu .webix_view {
+  background-color : #eceff1;
+}
+.cssSideMenu .webix_list_item {
+  line-height : 35px;
+  border-bottom-color : #d0d0d0;
+}
+
+
+/* Styles for the text lines on the About screen. */
+.aboutScreenLine {
+  text-align : center;
+  font-weight : bold;
+}
+
+
+/* For the name entry window, make the shadow more pronounced and add some padding all around. */
+.webix_window {
+  box-shadow : 0 0 50px #000000;
+  padding : 6px;
+}
+
+
+/* Define custom style for right and wrong answer alert messages. */
+.webix_rightAlert .webix_popup_text {
+  box-shadow : 0 3px #27ae60 inset;
+}
+.webix_rightAlert {
+  padding : 6px;
+  box-shadow : 0 0 50px #000000;
+}
+.webix_wrongAlert .webix_popup_text {
+  box-shadow : 0 3px #ff0000 inset;
+}
+.webix_wrongAlert {
+  padding : 6px;
+  box-shadow : 0 0 50px #000000;
+}
+.webix_wrongAlert .webix_popup_button.confirm div {
+  background-color : #ff0000;
+  border-color : #ff0000;
+}
+
+
+/* Define custom style for informational alert messages. */
+.webix_customInfo div { }
+.webix_customInfo .webix_popup_text {
+  box-shadow : 0 3px #0000ff inset;
+}
+.webix_customInfo {
+  padding : 6px;
+  box-shadow : 0 0 50px #000;
+}
+.webix_customInfo .webix_popup_button.confirm div {
+  background-color : #0000ff;
+  border-color : #0000ff;
+}
+
+
+/* Define styles to spin the "Awaiting question" text on the leaderboard screen. */
+.spinText {
+  animation-name : spin, depth;
+  animation-timing-function : linear;
+  animation-iteration-count : infinite;
+  animation-duration : 3s;
+  text-align : center;
+  font-weight : bold;
+  color : #ff0000;
+  font-size : 24pt;
+}
+@keyframes spin {
+  from { transform : rotateY(0deg); }
+  to { transform : rotateY(-360deg); }
+}
+@keyframes depth {
+  0 { text-shadow : 0 0 black; }
+  25% { text-shadow : 1px 0 black, 2px 0 black, 3px 0 black, 4px 0 black, 5px 0 black; }
+  50% { text-shadow : 0 0 black; }
+  75% { text-shadow : -1px 0 black, -2px 0 black, -3px 0 black, -4px 0 black, -5px 0 black; }
+  100% { text-shadow : 0 0 black; }
+}

@@ -168,7 +168,7 @@ io.on("connection", socket => {
 
 
   /**
-   * When a player first connects, request it's playerID.
+   * When a player first connects, request it's playerID by sending the connected message.
    */
   socket.emit("connected", { });
 
@@ -260,7 +260,7 @@ io.on("connection", socket => {
           gameData.average = Math.trunc(gameData.totalTime / numberAsked);
 
           // Calculate the points to add.  This is based on a max amount of time allowed to answer.  For example, 15
-          // seconds means they start of getting 60 points for a correct answer (maxTimeAllowed*4).  But then, for each
+          // seconds means they start off getting 60 points for a correct answer (maxTimeAllowed*4).  But then, for each
           // quarter second taken to answer (which is where the 4 comes from) we subtract 1 point, capping the loss at
           // the max points they could get.  So, in the end, if they take more than maxTimeAllowed seconds to answer
           // then they'll get no points, otherwise they'll get something less than or equal to maxTimeAllowed*4.

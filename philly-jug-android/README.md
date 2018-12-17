@@ -1,0 +1,1 @@
+A presentation on Android development to the Philly JUG in December 2011.

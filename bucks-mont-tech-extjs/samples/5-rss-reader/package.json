@@ -1,0 +1,7 @@
+{
+  "name" : "ExtJSRSSReaderProxyServer",
+  "engine" : ">=5.5.0",
+  "dependencies" : {
+    "feed-read" : "*"
+  }
+}

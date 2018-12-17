@@ -1,0 +1,35 @@
+/* Override ExtJS style to get a pointer over grid rows. */
+.x-grid-row td {
+  cursor : pointer!important;
+}
+
+/* Style for the title in the Articles list. */
+.cssArticleTitle {
+  padding-top : 10px;
+  font-weight : bold;
+  font-size : larger;
+}
+
+/* Style for the information line in the Articles list. */
+.cssArticleInfo {
+  color : #0000ff;
+  padding-bottom : 10px;
+  border-bottom : 2px dotted #a0a0a0;
+}
+
+/* Style for non-colored (normal) rows in the Articles list. */
+.cssNormalRow {
+  cursor : pointer;
+}
+
+/* Style for colored (alternate) rows in the Articles list. */
+.cssAltRow {
+  cursor : pointer;
+  background-color : #f0f0f0;
+}
+
+/* Style for row being hovered over in Feeds and Articles lists. */
+.cssRowHover {
+  cursor : pointer;
+  background-color : #ffc0c0;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, WorldDestroyerActivity!</string>
+    <string name="app_name">WorldDestroyer</string>
+    <string name="button2Text">I INTENT to destroy the world!</string>
+    <string name="button1Text">I will SPECIFICALLY destroy the world!</string>
+    <string name="destroyed">The world, as it has been, is over.</string>
+
+</resources>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>Just Another Library Of Utilities</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="ID=Edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <script type="text/javascript" src="../extjs/build/ext-all-debug.js"></script>
+
+    <script>
+
+      Ext.onReady(function() {
+
+        // Make 1st, 3rd and 5th list items red.
+        var nodes = Ext.query("li>span", false);
+        Ext.each(nodes, function(inItem) {
+          inItem.setStyle({ color : "#ff0000" });
+        });
+
+        // Test function binding.
+        function f1() {
+          return this;
+        }
+        var bo = f1() + "<br>";
+        var o1 = {
+          myName : "I am o1",
+          toString : function() { return this.myName; }
+        };
+        var f2 = Ext.bind(f1, o1);
+        bo = bo + f2();
+        Ext.get("bindOutput").insertHtml("afterBegin", bo);
+
+        // Test XTemplate.
+        var myData = [
+          { firstName : "Sean", lastName : "Connery" },
+          { firstName : "Roger", lastName : "Moore" },
+          { firstName : "Timothy", lastName : "Dalton" },
+          { firstName : "Pierce", lastName : "Brosnan" },
+          { firstName : "Daniel", lastName : "Craig" }
+        ];
+        var myTemplate = new Ext.XTemplate(
+          '<p><h2>Actors who have played James Bond</h2>',
+            '<tpl for=".">',
+              '<p>{#}. {firstName} {lastName}</p>',
+            '</tpl>',
+          '</p>'
+        );
+        myTemplate.overwrite(Ext.get("templateOutput"), myData);
+
+      });
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <ul>
+      <li><span>ExtJS</span></li>
+      <li>can</li>
+      <li><span>be</span></li>
+      <li>like</li>
+      <li><span>jQuery</span></li>
+    </ul>
+
+    <pre>
+      Ext.isBoolean("test") .... <script>document.write(Ext.isBoolean("test"));</script>
+      Ext.isBoolean(false) ..... <script>document.write(Ext.isBoolean(false));</script>
+      Ext.isDate(new Date()) ... <script>document.write(Ext.isDate(new Date()));</script>
+      Ext.isNumber("42") ....... <script>document.write(Ext.isNumber("42"));</script>
+      Ext.isNumeric("42") ...... <script>document.write(Ext.isNumeric("42"));</script>
+      Ext.isString("42") ....... <script>document.write(Ext.isString("42"));</script>
+      Ext.isArray([ 1, 2, 3]) .. <script>document.write(Ext.isArray([ 1, 2, 3]));</script>
+      Ext.isEmpty("   ") ....... <script>document.write(Ext.isEmpty("   "));</script>
+      Ext.isEmpty("") .......... <script>document.write(Ext.isEmpty(""));</script>
+      Ext.isEmpty(null) ........ <script>document.write(Ext.isEmpty(null));</script>
+      Ext.isEmpty({}) .......... <script>document.write(Ext.isEmpty({}));</script>
+      Ext.isEmpty([]) .......... <script>document.write(Ext.isEmpty([]));</script>
+    </pre>
+
+    <pre>
+      Ext.encode({ firstName : "Frank", lastName : "Zammetti" }) .......... <script>document.write(Ext.encode({firstName : "Frank", lastName : "Zammetti"}));</script>
+      Ext.decode("{\"firstName\":\"Frank\",\"lastName\":\"Zammetti\"}") ... <script>document.write(Ext.decode("{\"firstName\":\"Frank\",\"lastName\":\"Zammetti\"}"));</script>
+    </pre>
+
+    <div style="border:2px solid #000000;" id="bindOutput"></div>
+
+    <div id="templateOutput"></div>
+
+    <div
+      style="text-align:center;cursor:pointer;width:200px;height:150px;background-color:#ffa0a0;"
+      onClick="new Ext.dom.Element(this).slideOut();">
+      <br><br><br>Click to get rid of me
+    </div>
+
+  </body>
+
+</html>

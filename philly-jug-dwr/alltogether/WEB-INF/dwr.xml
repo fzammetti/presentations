@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+  "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+  "http://getahead.org/dwr/dwr30.dtd">
+
+<dwr>
+
+  <allow>
+    <create creator="spring" javascript="HelloHuman">
+      <param name="beanName" value="HelloHuman" />
+      <param name="location" value="spring-beans.xml" />
+      <include method="sayHelloNice" />
+      <auth method="sayHelloNice" role="dwrrole" />
+      <include method="sayHelloCold" />
+      <auth method="sayHelloCold" role="dwrrole" />
+      <include method="sayHelloMean" />
+      <auth method="sayHelloMean" role="dwrrole" />
+    </create>
+  </allow>
+
+</dwr>

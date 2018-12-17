@@ -1,0 +1,38 @@
+#header {
+  padding-left : 10px;
+  padding-top : 10px;
+  width : 100%;
+  background-color : #ff8080;
+  height : 50px;
+  font-size : 20pt;
+}
+
+
+#sidebar {
+  padding : 10px;
+  width : 200px;
+  float : left;
+  height : 500px;
+  background-color : #80ff80;
+  font-size : 16pt;
+}
+
+
+#content {
+  padding : 10px;
+  margin-left : 220px;
+  height : 500px;
+  background-color : #8080ff;
+}
+
+
+li {
+  padding-top : 10px;
+  padding-bottom : 10px;
+}
+
+
+li:hover {
+  background-color : #ffffff;
+  cursor : pointer;
+}

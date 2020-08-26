@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>math</title>
+    <script type="text/javascript" src="dwr/interface/MathDelegate.js"></script>
+    <script type="text/javascript" src="dwr/engine.js"></script>
+    <script>
+      function $(inID) { return document.getElementById(inID); }
+      function doMath() {
+        MathDelegate[$("op").value]($("num1").value, $("num2").value,
+          function(answer) { $("divAnswer").innerHTML = answer }
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="num1" size="4">&nbsp;
+    <select id="op">
+      <option value="add">+</option>
+      <option value="subtract">-</option>
+      <option value="multiply">*</option>
+      <option value="divide">/</option>
+    </select>
+    &nbsp;<input type="text" id="num2" size="4">
+    <input type="button" value="=" onClick="doMath();">
+    &nbsp;<span id="divAnswer" style="font-size:18pt;">&nbsp;</span><br><br>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>account</title>
+    <script type="text/javascript" src="dwr/interface/Processor.js"></script>
+    <script type="text/javascript" src="dwr/engine.js"></script>
+    <script type="text/javascript" src="dwr/util.js"></script>
+    <script>
+      function doSearch() {
+        var accountSearchVO = {
+          acctNumber : document.getElementById("acctNum").value
+        };
+        Processor.getAccount(accountSearchVO, { callback : function(inAccount) {
+          dwr.util.setValue("divAccountDetails",
+            "Account Number: " + inAccount.acctNumber + "<br>" +
+            "Shareholder Name: " + inAccount.shareholder + "<br>" +
+            "Current Balance: " + inAccount.balance,
+            { escapeHtml : false }
+          );
+        }});
+      }
+    </script>
+  </head>
+  <body>
+    Account Number: <input type="text" id="acctNum">
+    <input type="button" value="Get Account" onClick="doSearch();">
+    <br><br>
+    <div id="divAccountDetails"></div>
+  </body>
+</html>

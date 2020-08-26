@@ -1,0 +1,21 @@
+<project name="app" default="build" basedir="." >
+
+  <path id="classpath">
+    <pathelement path="../lib/dwr.jar" />
+  </path>
+
+  <target name="build">
+    <delete dir="../classes" />
+    <mkdir dir="../classes" />
+    <delete file="../lib/app.jar" />
+    <javac srcdir="." destdir="../classes"
+      deprecation="true" target="1.6" source="1.6"
+      debug="true" debuglevel="lines,vars,source"
+      encoding="iso-8859-1">
+      <classpath refid="classpath" />
+    </javac>
+    <jar destfile="../lib/app.jar" basedir="../classes" includes="*/**" />
+    <delete dir="../classes" />
+  </target>
+
+</project>

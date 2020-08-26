@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>ra_background</title>
+    <script type="text/javascript"
+      src="dwr/interface/BackgroundDelegate.js"></script>
+    <script type="text/javascript" src="dwr/engine.js"></script>
+    <script type="text/javascript" src="dwr/util.js"></script>
+    <script>
+      dwr.engine.setActiveReverseAjax(true);
+    </script>
+  </head>
+  <body>
+    This was sent via reverse AJAX:
+    <br>
+    <div id="divRAResponse"></div>
+    <br><br>
+    <input type="button" value="Click to do some background Comet"
+      onClick="BackgroundDelegate.dummyMethod();">
+  </body>
+</html>

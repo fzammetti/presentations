@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>ra_piggybacking</title>
+    <script type="text/javascript"
+      src="dwr/interface/PiggybackingDelegate.js"></script>
+    <script type="text/javascript" src="dwr/engine.js"></script>
+    <script type="text/javascript" src="dwr/util.js"></script>
+    <script>
+      function doPiggyback() {
+        PiggybackingDelegate.remoteMethod({
+          callback : function(inResp) {
+            dwr.util.setValue("divExpectedResponse", inResp);
+          }
+        });
+      }
+    </script>
+  </head>
+  <body>
+    This was sent via reverse AJAX:
+    <br>
+    <div id="divExpectedResponse"></div><div id="divPiggybackResponse"></div>
+    <br>
+    <input type="button" value="Call server" onClick="doPiggyback();">
+  </body>
+</html>

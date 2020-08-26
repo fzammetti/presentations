@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+  "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+  "http://getahead.org/dwr/dwr30.dtd">
+
+<dwr>
+
+  <allow>
+
+    <convert match="java.lang.Exception"
+      converter="exception">
+      <param name="include"
+        value="message,lineNumber" />
+    </convert>
+    <convert match="java.lang.StackTraceElement"
+      converter="bean" />
+
+    <convert converter="bean" match="app.SearchVO" />
+    <convert converter="bean" match="app.Account" />
+
+    <create creator="new"  javascript="Processor">
+      <param name="class" value="app.Processor" />
+    </create>
+
+  </allow>
+
+</dwr>

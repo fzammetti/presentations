@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>ra_polling</title>
+    <script type="text/javascript"
+      src="dwr/interface/PollingDelegate.js"></script>
+    <script type="text/javascript" src="dwr/engine.js"></script>
+    <script type="text/javascript" src="dwr/util.js"></script>
+    <script>
+      dwr.engine.setActiveReverseAjax(true);
+    </script>
+  </head>
+  <body>
+    This was sent via reverse AJAX:
+    <br>
+    <div id="divRAResponse"></div>
+    <br><br>
+    <input type="button" value="Click to do some polling"
+      onClick="PollingDelegate.dummyMethod();">
+  </body>
+</html>

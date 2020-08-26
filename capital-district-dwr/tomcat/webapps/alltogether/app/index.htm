@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>alltogether</title>
+    <script type="text/javascript"
+      src="../dwr/interface/WordsOfWisdom.js"></script>
+    <script type="text/javascript"
+      src="../dwr/interface/HelloHuman.js"></script>
+    <script type="text/javascript" src="../dwr/engine.js"></script>
+    <script type="text/javascript" src="../dwr/util.js"></script>
+    <script>
+      function sayHelloAndStuff() {
+        dwr.engine.beginBatch();
+          HelloHuman.sayHelloNice(dwr.util.getValue("yourName"), callbackFunc1);
+          HelloHuman.sayHelloCold(dwr.util.getValue("yourName"), callbackFunc2);
+          HelloHuman.sayHelloMean(dwr.util.getValue("yourName"), callbackFunc3);
+          WordsOfWisdom.getWisdom(dwr.util.getValue("yourName"), callbackFunc4);
+        dwr.engine.endBatch();
+      }
+      function callbackFunc1(inResp) { dwr.util.setValue("resp1", inResp); }
+      function callbackFunc2(inResp) { dwr.util.setValue("resp2", inResp); }
+      function callbackFunc3(inResp) { dwr.util.setValue("resp3", inResp); }
+      function callbackFunc4(inResp) { dwr.util.setValue("resp4", inResp); }
+    </script>
+  </head>
+  <body>
+    Your name: <input type="text" name="yourName">
+    <input type="button" onClick="sayHelloAndStuff();"><br>
+    <div id="resp1"></div><div id="resp2"></div>
+    <div id="resp3"></div><div id="resp4"></div>
+    <br><br>
+    <input type="button" value="No Go" onClick="HelloHuman.notAllowed();"><br>
+  </body>
+</html>

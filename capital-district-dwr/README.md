@@ -1,0 +1,1 @@
+This was a presentation given on June 2009 to the Capital District Java Developers Network on the DWR (Direct Web Remoting) library.
